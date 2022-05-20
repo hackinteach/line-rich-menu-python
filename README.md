@@ -1,19 +1,26 @@
-# Line Rich Menu Uploader
+Line Rich Menu CLI
 ---
 
-This is an small gist I think it would help some Line Developpers. Feel free to fork and make pull request if there's any improvement you wanna make or you think it should improved :)
+TBA
 
-**Usage:**
-Create and upload rich menu using Line API.
+---
+## Prerequisites
+- libmagic
 
-1. Use [Line Bot Designer](https://developers.line.biz/en/services/bot-designer/) to generate json for each rich menu
-2. Create `.env` file and put `LINE_ACCESS_TOKEN` inside that file
-3. Edit `template.json` with following conventions:
-    - Use `filename` WITHOUT extension as a key
-    - Use json generated from Line Bot Designer as a value
-3. [Optional] Specify image directory and output file name
-4. Edit runner (last line) according to your needs
-5. Run `python rich_maker.py`
+---
+TODO:
+
+- [x] `line_rich_menu create --data <json file> --image <image file> --token <token, use env LINE_ACCESS_TOKEN> --default (set menu as default menu)`
+
+- [ ] `line_rich_menu set --data <json file> --image <image file> --token <token | ENV> --menu <current menu id>`
+
+- [ ] `line_rich_menu list --token`
+
+- [ ] `line_rich_menu delete --token`
+
+- [ ] `line_rich_menu link <menu_id> ...<user_id> --token`
+
+- [ ] `line_rich_menu set <menu_id> --token`
 
 ## References
 --
