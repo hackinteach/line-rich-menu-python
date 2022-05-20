@@ -1,4 +1,10 @@
-
+.idea
+.DS_Store
+.env*
+*.json
+*.png
+*.jpg
+*.env
 # Created by https://www.gitignore.io/api/python
 # Edit at https://www.gitignore.io/?templates=python
 
