@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "line-rich-menu"
+version = "0.1.0"
+description = "Rich Menu CLI for Line Bot"
+authors = ["Nuttapat Koonarangsri <webmaster@hackinteach.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+python-dotenv = "^0.20.0"
+line-bot-sdk = "^2.2.1"
+click = "^8.1.3"
+python-magic = "^0.4.25"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+line_rich_menu = "line_rich_menu.cli.main:main_cli"
