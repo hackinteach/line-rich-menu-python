@@ -1,0 +1,65 @@
+{
+  "richmenu": {
+    "size": {
+      "width": 2500,
+      "height": 1686
+    },
+    "selected": true,
+    "name": "Rich Menu 1",
+    "chatBarText": "Bulletin",
+    "areas": [
+      {
+        "bounds": {
+          "x": 0,
+          "y": 0,
+          "width": 1250,
+          "height": 846
+        },
+        "action": {
+          "type": "postback",
+          "displayText": "Intranet",
+          "data": "action=menu|topic=Intranet"
+        }
+      },
+      {
+        "bounds": {
+          "x": 0,
+          "y": 841,
+          "width": 1254,
+          "height": 845
+        },
+        "action": {
+          "type": "postback",
+          "displayText": "Hardware",
+          "data": "action=menu|topic=Hardware"
+        }
+      },
+      {
+        "bounds": {
+          "x": 1250,
+          "y": 4,
+          "width": 1250,
+          "height": 846
+        },
+        "action": {
+          "type": "postback",
+          "displayText": "Software",
+          "data": "action=menu|topic=Software"
+        }
+      },
+      {
+        "bounds": {
+          "x": 1250,
+          "y": 845,
+          "width": 1250,
+          "height": 841
+        },
+        "action": {
+          "type": "postback",
+          "displayText": "CRM & SAP",
+          "data": "action=menu|topic=CRM & SAP"
+        }
+      }
+    ]
+  }
+}
