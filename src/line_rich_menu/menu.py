@@ -1,6 +1,8 @@
 from logging import getLogger
 from os import environ
 from typing import Optional, Any, Dict
+
+import dotenv
 import magic
 from linebot import LineBotApi
 from linebot.models import RichMenu, RichMenuSize
@@ -21,13 +23,15 @@ class LineRichMenu:
     def logger(self):
         return getLogger(self.__class__.__name__)
 
-    def create_menu(self, data: Dict[str, Any], image_path: str, set_default: bool = False):
+    def create_menu(
+        self, data: Dict[str, Any], image_path: str, set_default: bool = False
+    ):
         """
-        
+
         :param set_default:
         :param data:
-        :param image_path: 
-        :return:  
+        :param image_path:
+        :return:
         """
         mime = magic.from_file(image_path, mime=True)
         valid = validate_rich_menu_object(token=self.token, obj=data)
@@ -46,19 +50,20 @@ class LineRichMenu:
             exit(1)
 
         m = RichMenu(
-            size=RichMenuSize(width=data["size"]["width"], height=data["size"]["height"]),
+            size=RichMenuSize(
+                width=data["size"]["width"], height=data["size"]["height"]
+            ),
             selected=set_default,  # override from data
             name=data["name"],
             chat_bar_text=data["chatBarText"],
-            areas=data["areas"]
+            areas=data["areas"],
         )
         menu_id = self.client.create_rich_menu(rich_menu=m)
 
         with open(image_path, "rb") as img_file:
             self.client.set_rich_menu_image(
-                rich_menu_id=menu_id,
-                content_type=mime,
-                content=img_file)
+                rich_menu_id=menu_id, content_type=mime, content=img_file
+            )
 
         if set_default:
             self.client.set_default_rich_menu(menu_id)
