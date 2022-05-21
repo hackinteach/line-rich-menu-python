@@ -29,6 +29,22 @@ class LineRichMenu:
         :param image_path: 
         :return:  
         """
+        mime = magic.from_file(image_path, mime=True)
+        valid = validate_rich_menu_object(token=self.token, obj=data)
+
+        if not valid:
+            self.logger.error(
+                "Invalid menu object, see https://developers.line.biz/en/reference/messaging-api/#rich-menu-object"
+            )
+            exit(1)
+
+        if mime not in ["image/jpeg", "image/png"]:
+            self.logger.error(
+                "Invalid image file type, only PNG and JPG are supported. "
+                "See https://developers.line.biz/en/reference/messaging-api/#upload-rich-menu-image"
+            )
+            exit(1)
+
         m = RichMenu(
             size=RichMenuSize(width=data["size"]["width"], height=data["size"]["height"]),
             selected=set_default,  # override from data
@@ -36,20 +52,12 @@ class LineRichMenu:
             chat_bar_text=data["chatBarText"],
             areas=data["areas"]
         )
-
-        valid = validate_rich_menu_object(token=self.token, obj=data)
-        if not valid:
-            self.logger.error(
-                "Invalid menu object, see https://developers.line.biz/en/reference/messaging-api/#rich-menu-object"
-            )
-            exit(1)
-
         menu_id = self.client.create_rich_menu(rich_menu=m)
 
         with open(image_path, "rb") as img_file:
             self.client.set_rich_menu_image(
                 rich_menu_id=menu_id,
-                content_type=magic.from_file(image_path, mime=True),
+                content_type=mime,
                 content=img_file)
 
         if set_default:
