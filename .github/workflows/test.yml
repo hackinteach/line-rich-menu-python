@@ -1,4 +1,4 @@
-name: Playwright Tests
+name: Tests
 on:
   push:
     branches: [main, master]
@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-20.04
     strategy:
       matrix:
-        python-version: [ "3.6", "3.7", "3.8", "3.9" ]
+        python-version: [ "3.7", "3.8", "3.9" ]
     steps:
       - uses: actions/checkout@v3
 
@@ -44,3 +44,5 @@ jobs:
 
       - name: Run test
         run: poetry run pytest
+        env:
+          LINE_ACCESS_TOKEN: ${{ secrets.TEST_LINE_ACCESS_TOKEN }}
