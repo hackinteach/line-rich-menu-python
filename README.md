@@ -9,6 +9,7 @@ TBA
 
 ---
 TODO:
+- [ ] CICD and PYPI submission
 
 - [x] `line_rich_menu create --data <json file> --image <image file> --token <token, use env LINE_ACCESS_TOKEN> --default (set menu as default menu)`
 
