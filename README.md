@@ -1,6 +1,8 @@
 Line Rich Menu CLI
 ---
 
+![Test](https://github.com/hackinteach/line-rich-menu-python/actions/workflows/test.yml/badge.svg)
+
 TBA
 
 ---
