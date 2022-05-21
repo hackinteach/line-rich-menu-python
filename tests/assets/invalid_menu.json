@@ -1,0 +1,18 @@
+{
+  "size": {
+    "width": 2500,
+    "height": 843
+  },
+  "selected": false,
+  "name": "Test Menu",
+  "chatBarText": "Menu",
+  "areas": [
+    {
+      "bounds": {},
+      "action": {
+        "type": "uri",
+        "uri": "https://www.google.com/"
+      }
+    }
+  ]
+}
