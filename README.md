@@ -2,16 +2,16 @@ Line Rich Menu CLI
 ---
 
 ![Test](https://github.com/hackinteach/line-rich-menu-python/actions/workflows/test.yml/badge.svg)
+[![codecov](https://codecov.io/gh/hackinteach/line-rich-menu-python/branch/main/graph/badge.svg?token=KFZPEH3YNR)](https://codecov.io/gh/hackinteach/line-rich-menu-python)
 
 TBA
 
----
 ## Prerequisites
 - libmagic
 
----
-TODO:
-- [ ] CICD and PYPI submission
+
+## TODO:
+- [ ] PYPI Package
 
 - [x] `line_rich_menu create --data <json file> --image <image file> --token <token, use env LINE_ACCESS_TOKEN> --default (set menu as default menu)`
 

@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "line-rich-menu"
-version = "0.1.0"
+version = "0.0.1"
 description = "Rich Menu CLI for Line Bot"
 authors = ["Nuttapat Koonarangsri <webmaster@hackinteach.com>"]
 
