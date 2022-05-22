@@ -12,8 +12,6 @@ on:
 jobs:
   build-publish:
     timeout-minutes: 60
-    needs:
-      - lint
     runs-on: ubuntu-20.04
     strategy:
       matrix:
