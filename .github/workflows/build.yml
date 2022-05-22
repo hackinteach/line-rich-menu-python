@@ -1,34 +1,14 @@
-name: Build and Package
+name: Python package
 on:
   push:
-    branches: [main, master]
-  pull_request:
-    branches: [main, master]
-  workflow_run:
-    workflows:
-      - Tests
-    types:
-      - completed
+    tags:
+      - "v*.*.*"
 jobs:
-  build-publish:
-    timeout-minutes: 60
-    runs-on: ubuntu-20.04
-    strategy:
-      matrix:
-        python-version: [ "3.8" ]
+  build:
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v3
+      - uses: actions/checkout@v2
+      - name: Build and publish to pypi
+        uses: JRubics/poetry-publish@v1.11
         with:
-          python-version: ${{ matrix.python-version }}
-
-      - name: Setup Poetry
-        run: pip install poetry
-
-      - name: Build
-        run: poetry build
-
-      - name: Publish
-        run: poetry publish
+          pypi_token: ${{ secrets.POETRY_PYPI_TOKEN_PYPI }}
