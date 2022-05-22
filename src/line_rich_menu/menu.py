@@ -23,7 +23,7 @@ class LineRichMenu:
         return getLogger(self.__class__.__name__)
 
     def create_menu(
-            self, data: Dict[str, Any], image_path: str, set_default: bool = False
+        self, data: Dict[str, Any], image_path: str, set_default: bool = False
     ):
         """
 
