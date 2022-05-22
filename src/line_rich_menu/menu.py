@@ -2,21 +2,20 @@ from logging import getLogger
 from os import environ
 from typing import Optional, Any, Dict
 
-import dotenv
 import magic
 from linebot import LineBotApi
 from linebot.models import RichMenu, RichMenuSize
 
-from .helper import validate_rich_menu_object
 from .const import ACCESS_TOKEN_KEY, NO_TOKEN_TEXT
+from .helper import validate_rich_menu_object
 
 
 class LineRichMenu:
     def __init__(self, token: Optional[str] = None):
         self.token = token or environ.get(ACCESS_TOKEN_KEY)
         if self.token is None:
-            self.logger.warning(NO_TOKEN_TEXT)
-            exit(1)
+            self.logger.error(NO_TOKEN_TEXT)
+            raise Exception("No access token provided")
         self.client = LineBotApi(self.token)
 
     @property
@@ -24,7 +23,7 @@ class LineRichMenu:
         return getLogger(self.__class__.__name__)
 
     def create_menu(
-        self, data: Dict[str, Any], image_path: str, set_default: bool = False
+            self, data: Dict[str, Any], image_path: str, set_default: bool = False
     ):
         """
 
@@ -40,14 +39,14 @@ class LineRichMenu:
             self.logger.error(
                 "Invalid menu object, see https://developers.line.biz/en/reference/messaging-api/#rich-menu-object"
             )
-            exit(1)
+            raise Exception("Invalid menu object")
 
         if mime not in ["image/jpeg", "image/png"]:
             self.logger.error(
                 "Invalid image file type, only PNG and JPG are supported. "
                 "See https://developers.line.biz/en/reference/messaging-api/#upload-rich-menu-image"
             )
-            exit(1)
+            raise Exception("Unsupported image file")
 
         m = RichMenu(
             size=RichMenuSize(

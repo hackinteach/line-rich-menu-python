@@ -3,8 +3,7 @@ Line Rich Menu CLI
 
 ![Test](https://github.com/hackinteach/line-rich-menu-python/actions/workflows/test.yml/badge.svg)
 [![codecov](https://codecov.io/gh/hackinteach/line-rich-menu-python/branch/main/graph/badge.svg?token=KFZPEH3YNR)](https://codecov.io/gh/hackinteach/line-rich-menu-python)
-
-TBA
+[![PyPI version](https://badge.fury.io/py/line-rich-menu.svg)](https://badge.fury.io/py/line-rich-menu)
 
 ## Prerequisites
 - libmagic
