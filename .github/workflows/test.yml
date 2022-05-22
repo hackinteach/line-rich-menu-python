@@ -48,3 +48,12 @@ jobs:
         run: poetry run pytest
         env:
           LINE_ACCESS_TOKEN: ${{ secrets.TEST_LINE_ACCESS_TOKEN }}
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v2
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          directory: ./coverage/reports/
+          files: ./coverage.xml
+          flags: unittests
+          verbose: true
