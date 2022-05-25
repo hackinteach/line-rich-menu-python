@@ -4,6 +4,7 @@ from os import environ
 from typing import Optional
 
 import click
+import dotenv
 from click import Context
 
 from ..const import ACCESS_TOKEN_KEY, NO_TOKEN_TEXT
@@ -26,7 +27,6 @@ logger = logging.getLogger("LineRichMenu")
 def main_cli(ctx: Context, token: Optional[str]):
     if token is None:
         logger.error(NO_TOKEN_TEXT)
-        exit(1)
     ctx.ensure_object(dict)
     ctx.obj[ACCESS_TOKEN_KEY] = token
 
@@ -62,4 +62,5 @@ def create(ctx: Context, data: str, image: str, default: bool, token: str):
 
 
 if __name__ == "__main__":
+    dotenv.load_dotenv()
     main_cli(obj={})
