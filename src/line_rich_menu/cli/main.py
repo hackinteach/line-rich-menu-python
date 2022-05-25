@@ -52,8 +52,8 @@ def main_cli(ctx: Context, token: Optional[str]):
     default=lambda: environ.get(ACCESS_TOKEN_KEY, ""),
 )
 @click.pass_context
-def create(ctx: Context, data: str, image: str, default: bool):
-    token = ctx.obj.get(ACCESS_TOKEN_KEY)
+def create(ctx: Context, data: str, image: str, default: bool, token: str):
+    token = ctx.obj.get(ACCESS_TOKEN_KEY, token)
     with open(data, "r") as f:
         data_dict = load(f)
     tool = LineRichMenu(token=token)
