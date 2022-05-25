@@ -39,7 +39,7 @@ def main_cli(ctx: Context, token: Optional[str]):
     help="Rich menu object in json format, see https://developers.line.biz/en/reference/messaging-api/#rich-menu-object",
 )  # noqa
 @click.option("-i", "--image", type=click.Path(exists=True))
-@click.option("--default", type=bool, default=False, help="Set menu as default")
+@click.option("--default", is_flag=True, type=bool, default=False, help="Set menu as default")
 @click.option(
     "-t",
     "--token",
